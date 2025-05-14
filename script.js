@@ -7,6 +7,7 @@ buttons.forEach(button => {
         if (value === '=') {
             calculate = eval(calculate);
             display.innerText = calculate;
+            calculate = '';
         } else if (value === 'C') {
             calculate = '';
             display.innerText = '0';

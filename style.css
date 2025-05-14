@@ -33,10 +33,11 @@ body {
     border-radius: 10px;
     margin: 10px;
     padding: 10px;
-    text-align: right;
+    text-align: end;
+    justify-content: center;
     font-weight: bolder;
     font-size: clamp(1.2rem, 2.5vw, 2rem);
-    min-height: 3em;
+    min-height: 1.5em;
     word-wrap: break-word;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
@@ -51,6 +52,8 @@ body {
 }
 
 button {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
     background-color: rgba(200, 200, 200, 0.15);
     border: none;
     border-radius: 100vh;
