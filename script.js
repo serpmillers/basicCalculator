@@ -10,9 +10,39 @@ buttons.forEach(button => {
         } else if (value === 'C') {
             calculate = '';
             display.innerText = '0';
+        } else if (value === 'DEL') {
+            calculate = calculate.slice(0, -1);
+            if (calculate === '') {
+                display.innerText = '0';
+            } else {
+                display.innerText = calculate;
+            }
+        } else if (value === 'CE') {
+            let operator = 0;
+            for (let i = 0; i < calculate.length; i++) {
+                if (calculate[i] === '+' || calculate[i] === '-' || calculate[i] === '*' || calculate[i] === '/') {
+                    operator++;
+                }
+            }
+            if (operator === 1 || operator === 0) {
+                calculate = '';
+                display.innerText = '0';
+            }
+            else {
+                for (let i = calculate.length -1; i >= 0; i--) {
+                    if ((calculate[i] === '+' || calculate[i] === '-' || calculate[i] === '*' || calculate[i] === '/') && i !== calculate.length - 1) {
+                        calculate = calculate.slice(0, i + 1);
+                        break;
+                    }
+                }
+                display.innerText = calculate;
+            }
         } else {
             calculate += value;
             display.innerText = calculate;
         }
     });
 });
+
+
+
