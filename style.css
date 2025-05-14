@@ -1,69 +1,81 @@
 body {
     font-family: 'Courier New', Courier, monospace;
     background-image: url("calc.jpg");
-    background-size: cover; 
-    background-repeat: no-repeat; 
+    background-size: cover;
+    background-repeat: no-repeat;
     background-attachment: fixed;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    min-height: 100vh;
     display: flex;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
 .back {
-    background-color: rgba(200,200,200,0.1);
+    background-color: rgba(200, 200, 200, 0.05);
     backdrop-filter: blur(10px);
     border-radius: 10px;
     padding: 10px;
     text-align: center;
     flex-direction: column;
-    width: fit-content;
+    width: 90vw;
+    max-width: 400px;
     display: flex;
-    height: fit-content;
     box-sizing: border-box;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .display {
-    background-color: rgba(200,200,200,0.15);
+    background-color: rgba(200, 200, 200, 0.15);
     backdrop-filter: blur(5px);
     border-radius: 10px;
     margin: 10px;
-    padding: 5px;
+    padding: 10px;
     text-align: right;
     font-weight: bolder;
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
+    min-height: 3em;
+    word-wrap: break-word;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .nomdiv {
     border-radius: 10px;
     margin: 10px;
     padding: 5px;
-    text-align: center;
-    justify-content: space-evenly;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
 }
 
 button {
-    background-color: rgba(200,200,200,0.15);
+    background-color: rgba(200, 200, 200, 0.15);
     border: none;
     border-radius: 100vh;
-    margin: 5px;
-    margin-inline: 10px;
-    padding-inline: 10px;
-    padding-block: 10px;
-    cursor: pointer;
+    padding: 15px;
+    font-size: clamp(1rem, 2vw, 1.5rem);
     font-weight: bolder;
-    transition: 1s;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    touch-action: manipulation;
+    user-select: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 button:hover {
-    background-color: rgba(200,200,200,0.7);
-    border: none;
-    border-radius: 100vh;
-    margin: 5px;
-    margin-inline: 10px;
-    padding-inline: 10px;
-    padding-block: 10px;
-    cursor: pointer;
-    font-weight: bolder;
+    background-color: rgba(200, 200, 200, 0.4);
+}
+
+@media (max-width: 480px) {
+
+    .back {
+        width: 95vw;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 1.2rem;
+    }
 }

@@ -24,12 +24,32 @@ buttons.forEach(button => {
                     operator++;
                 }
             }
-            if (operator === 1 || operator === 0) {
+            if (operator === 0) {
                 calculate = '';
                 display.innerText = '0';
             }
+
+            else if (operator === 1) {
+                let lastOperator = false;
+                if (calculate[calculate.length-1] === '+' || calculate[calculate.length-1] === '-' || calculate[calculate.length-1] === '*' || calculate[calculate.length-1] === '/') {
+                    lastOperator = true;
+                }
+                if (lastOperator) {
+                    calculate = '';
+                    display.innerText = '0';    
+                } else {
+                    for (let i = calculate.length - 1; i >= 0; i--) {
+                        if (calculate[i] === '+' || calculate[i] === '-' || calculate[i] === '*' || calculate[i] === '/') {
+                            calculate = calculate.slice(0, i + 1);
+                            break;
+                        }
+                    }
+                    display.innerText = calculate;
+                }
+            }
+
             else {
-                for (let i = calculate.length -1; i >= 0; i--) {
+                for (let i = calculate.length - 1; i >= 0; i--) {
                     if ((calculate[i] === '+' || calculate[i] === '-' || calculate[i] === '*' || calculate[i] === '/') && i !== calculate.length - 1) {
                         calculate = calculate.slice(0, i + 1);
                         break;
